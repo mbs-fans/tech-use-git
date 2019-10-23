@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        ul,ol,li {
+            list-style: none;
+        }
+        li {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>新机安装本地git以及同github通信要领</h2>
+    <ul>
+        <li>1.去网易邮箱注册一个网易邮箱账号</li>
+        <li>2.去github注册一个账号，邮箱使用步骤1中的邮箱</li>
+        <li>3.按照homebrew官网安装homebrew</li>
+        <li>4.用homebrew安装git</li>
+        <li>5.git config --global user.name "xxx"&& git config --global user.email "xxx"(设置名字和email地址)，设置好了后，可以使用git config --list查看，也可以再次修改</li>
+        <li>6.进入根目录 cd ~ 再进入.ssh 目录 cd .ssh查看是否存在id_rsa 和 id_rsa.pub文件</li>
+        <li>7.如果不存在步骤6中的两个文件，终端执行 ssh-keygen -t rsa -C "your_email@example.com" 其中邮箱为你注册github的邮箱，然后一直默认回车即可（第一个回车是保存id_rsa的位置，第二个回车设置passphrase，为以后本地git同github通信使用的密码，<span style="color:red;">最好设置为空，防止以后每次push都要输入密码</span>，第三次回车是确认密码）</li>
+        <li>8.打开github-->Settings-->SSH keys-->Add SSH key,title随便写，key的内容为.ssh目录下面的id_rsa.pub内容（记得提前粘贴好）</li>
+        <li>9.然后就可以本地git仓库同github仓库通信了（push）</li>
+    </ul>
+</body>
+</html>
